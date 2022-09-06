@@ -4,18 +4,17 @@ namespace Tests\Feature;
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Support\Facades\App;
+use self;
+use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class ExampleTest extends TestCase
-{
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function test_the_application_returns_a_successful_response()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+{   
+    public function testEnvDe()
+    {   
+        if(App::environment('testing')){
+            echo"logic in local env". PHP_EOL;
+            self::assertTrue(True);
+        }
     }
 }
